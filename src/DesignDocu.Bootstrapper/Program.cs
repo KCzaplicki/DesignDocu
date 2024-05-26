@@ -1,24 +1,20 @@
-using DesignDocu.Auth.Api;
-using DesignDocu.Authorization;
+using DesignDocu.Common.Api.Configuration;
+using DesignDocu.Common.Api.ErrorHandling;
 using DesignDocu.Common.Module;
+using DesignDocu.Infrastructure.Auth.Authorization.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Configuration
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true, reloadOnChange: true)
-    .AddEnvironmentVariables();
+builder.Configuration.AddJsonFileConfiguration(builder.Environment);
 
-builder.Services.AddAuth(builder.Configuration);
+builder.Services.AddIdentityAuthorization(builder.Configuration.GetSection("Authorization"));
 builder.Services.AddModules(builder.Configuration.GetSection("Modules"));
 
 var app = builder.Build();
 
 app.UseHttpsRedirection();
-
-app.UseAuth();
-app.MapAuthEndpoints();
+app.UseErrorHandling();
+app.UseIdentityAuthorization();
 
 app.UseModules();
 

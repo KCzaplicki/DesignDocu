@@ -7,4 +7,14 @@
         <RootNamespace>DesignDocu.Users.Application</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Folder Include="Users\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DesignDocu.Common.Application\DesignDocu.Common.Application.csproj" />
+      <ProjectReference Include="..\DesignDocu.Infrastructure.Authorization.Abstractions\DesignDocu.Infrastructure.Authorization.Abstractions.csproj" />
+      <ProjectReference Include="..\DessignDocu.Users.Domain\DessignDocu.Users.Domain.csproj" />
+    </ItemGroup>
+
 </Project>

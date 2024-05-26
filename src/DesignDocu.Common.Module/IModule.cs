@@ -10,5 +10,5 @@ public interface IModule
     
     void ConfigureServices(IServiceCollection services, IConfigurationSection configuration);
  
-    void Configure(WebApplication application);
+    void ConfigureEndpoints(WebApplication application);
 }

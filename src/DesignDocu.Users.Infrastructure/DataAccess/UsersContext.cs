@@ -1,4 +1,4 @@
-using DesignDocu.Authorization.DataAccess.Models;
+using DesignDocu.Infrastructure.Authorization.Abstractions.DataAccess;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 

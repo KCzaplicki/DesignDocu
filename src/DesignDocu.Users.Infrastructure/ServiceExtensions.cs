@@ -1,4 +1,8 @@
 using DesignDocu.Users.Infrastructure.DataAccess;
+using DesignDocu.Users.Infrastructure.DataAccess.Repositories;
+using DesignDocu.Users.Infrastructure.Identity;
+using DessignDocu.Users.Domain.Users.Repositories;
+using DessignDocu.Users.Domain.Users.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +22,9 @@ public static class ServiceExtensions
         {
             options.UseSqlServer(usersConfiguration.ConnectionString);
         });
+        
+        services.AddScoped<IIdentityService, IdentityService>();
+        services.AddScoped<IUserRepository, UserRepository>();
         
         return services;
     }

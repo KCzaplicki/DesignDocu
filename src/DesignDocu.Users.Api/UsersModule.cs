@@ -1,5 +1,6 @@
 using DesignDocu.Common.Module;
-using DesignDocu.Users.Api.Healthcheck;
+using DesignDocu.Users.Api.Endpoints;
+using DesignDocu.Users.Application;
 using DesignDocu.Users.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -13,12 +14,13 @@ public class UsersModule : IModule
 
     public void ConfigureServices(IServiceCollection services, IConfigurationSection configuration)
     {
+        services.AddUsersApplication();
         services.AddUsersInfrastructure(configuration);
     }
 
-    public void Configure(WebApplication application)
+    public void ConfigureEndpoints(WebApplication application)
     {
-        application.MapGroup("/users")
-            .MapHealthcheck();
+        application.MapAuthEndpoints();
+        application.MapGroup("/users").MapUserEndpoints();
     }
 }

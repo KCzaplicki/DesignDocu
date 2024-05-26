@@ -17,10 +17,12 @@
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.5" />
     </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\DesignDocu.Auth.Core\DesignDocu.Auth.Core.csproj" />
+      <ProjectReference Include="..\DesignDocu.Infrastructure.Authorization.Abstractions\DesignDocu.Infrastructure.Authorization.Abstractions.csproj" />
+      <ProjectReference Include="..\DessignDocu.Users.Domain\DessignDocu.Users.Domain.csproj" />
     </ItemGroup>
 
 </Project>

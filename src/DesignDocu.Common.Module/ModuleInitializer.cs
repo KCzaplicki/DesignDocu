@@ -36,7 +36,7 @@ public static class ModuleInitializer
     {
         foreach (var module in RegisteredModules)
         {
-            module.Configure(app);
+            module.ConfigureEndpoints(app);
         }
         
         return app;

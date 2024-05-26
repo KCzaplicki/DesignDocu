@@ -12,7 +12,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\DesignDocu.Auth.Api\DesignDocu.Auth.Api.csproj" />
+      <ProjectReference Include="..\DesignDocu.Common.Api\DesignDocu.Common.Api.csproj" />
+      <ProjectReference Include="..\DesignDocu.Infrastructure.Authorization.Core\DesignDocu.Infrastructure.Authorization.Core.csproj" />
       <ProjectReference Include="..\DesignDocu.Users.Api\DesignDocu.Users.Api.csproj" />
     </ItemGroup>
 </Project>
